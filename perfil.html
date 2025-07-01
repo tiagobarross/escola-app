@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    nav {
+      margin-bottom: 20px;
+    }
+
+    #perfil {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #f9f9f9;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Voltar</a>
+  </nav>
+
+  <h2>Buscar Meu Perfil</h2>
+  <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+  <button onclick="buscarPerfil()">Buscar</button>
+
+  <div id="perfil"></div>
+
+  <script src="js/perfil.js"></script>
+</body>
+
+</html>

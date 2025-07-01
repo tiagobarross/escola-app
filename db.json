@@ -1,0 +1,27 @@
+{
+  "cursos": [
+    {
+      "id": "efca",
+      "nome": "Exemplo",
+      "descricao": "Curso Exemplo",
+      "cargaHoraria": "120",
+      "dataCadastro": "2025-07-01"
+    }
+  ],
+  "alunos": [
+    {
+      "id": "be26",
+      "nome": "teste",
+      "cpf": "12312312",
+      "dataNascimento": "2025-07-01",
+      "cursoId": null
+    },
+    {
+      "id": "7d43",
+      "nome": "Tiago",
+      "cpf": "619503643563",
+      "dataNascimento": "2025-07-03",
+      "cursoId": ""
+    }
+  ]
+}

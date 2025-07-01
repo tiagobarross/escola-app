@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Administração</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .abas {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .aba {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      background-color: #f1f1f1;
+    }
+
+    .aba.ativa {
+      background-color: white;
+      font-weight: bold;
+    }
+
+    .secao {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    .secao.ativa {
+      display: block;
+    }
+
+    .formulario {
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 10px;
+      position: relative;
+      border: 1px solid #ccc;
+    }
+
+    .fechar-formulario {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Voltar</a>
+  </nav>
+
+  <h2>Administração</h2>
+
+  <div class="abas">
+    <div class="aba ativa" onclick="trocarAba('cursos')">Gerenciar Cursos</div>
+    <div class="aba" onclick="trocarAba('alunos')">Gerenciar Alunos</div>
+  </div>
+
+  <div id="secaoCursos" class="secao ativa">
+    <input type="text" id="filtroCurso" placeholder="Buscar curso..." oninput="listarCursos()">
+    <button onclick="mostrarFormularioCurso()">Novo Curso</button>
+
+    <div id="formCurso" class="formulario" style="display:none;">
+      <button class="fechar-formulario" onclick="fecharFormularioCurso()">×</button>
+      <div class="campos-formulario">
+        <input type="text" id="nomeCurso" placeholder="Nome">
+        <input type="text" id="descricaoCurso" placeholder="Descrição">
+        <input type="text" id="cargaHorariaCurso" placeholder="Carga Horária">
+      </div>
+      <button onclick="salvarCurso()">Salvar</button>
+    </div>
+
+
+    <table border="1" id="tabelaCursos">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Carga Horária</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div id="secaoAlunos" class="secao">
+    <input type="text" id="filtroAluno" placeholder="Buscar aluno..." oninput="listarAlunos()">
+    <button onclick="mostrarFormularioAluno()">Novo Aluno</button>
+
+    <div id="formAluno" class="formulario" style="display:none;">
+      <button class="fechar-formulario" onclick="fecharFormularioAluno()">×</button>
+      <div class="campos-formulario">
+        <input type="text" id="nomeAluno" placeholder="Nome">
+        <input type="text" id="cpfAluno" placeholder="CPF">
+        <input type="date" id="dataNascimentoAluno">
+        <select id="cursoAlunoSelect">
+          <option value="">Selecione um curso</option>
+        </select>
+      </div>
+      <button onclick="salvarAluno()">Salvar</button>
+    </div>
+
+
+    <table border="1" id="tabelaAlunos">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Data de Nascimento</th>
+          <th>Curso</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    function trocarAba(aba) {
+      document.querySelectorAll(".aba").forEach(tab => tab.classList.remove("ativa"));
+      document.querySelectorAll(".secao").forEach(sec => sec.classList.remove("ativa"));
+
+      if (aba === "cursos") {
+        document.querySelector(".aba:nth-child(1)").classList.add("ativa");
+        document.getElementById("secaoCursos").classList.add("ativa");
+      } else {
+        document.querySelector(".aba:nth-child(2)").classList.add("ativa");
+        document.getElementById("secaoAlunos").classList.add("ativa");
+      }
+    }
+
+    function fecharFormularioCurso() {
+      document.getElementById("formCurso").style.display = "none";
+    }
+
+    function fecharFormularioAluno() {
+      document.getElementById("formAluno").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>
