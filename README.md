@@ -42,6 +42,7 @@ json-server --watch db.json --port 3000
 
 ## 📝 Estrutura de diretórios
 
+```bash
 /escola-app
 ├── css/
 │   └── style.css
@@ -52,3 +53,4 @@ json-server --watch db.json --port 3000
 ├── admin.html
 ├── perfil.html
 └── db.json
+```
