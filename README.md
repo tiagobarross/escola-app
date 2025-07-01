@@ -48,6 +48,7 @@ json-server --watch db.json --port 3000
 │   └── style.css
 ├── js/
 │   ├── admin.js
+│   ├── api.js
 │   └── perfil.js
 ├── index.html
 ├── admin.html
